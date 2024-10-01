@@ -4,10 +4,10 @@ def retrieve_vector(vector):
    updated_vector = updated_vector.replace(")", "")
    vec = updated_vector.split(",")
    if len(vec) != 3:
-      print("Invalid Dimensions: Vector should be of form (x,y,z).")
+      print("Invalid Dimensions: Vector should be of form '(x,y,z)'.")
    else:
       for elem in vec:
-         final_vector.append(int(elem))
+         final_vector.append(float(elem))
       return final_vector
 
 def magnitude(vector):
@@ -33,9 +33,12 @@ def scalar_triple_prod(vector1, vector2, vector3):
 def unit_vector(vector):
    mag = magnitude(vector)
    mag_vec = mag[1]
-   final_vector = "[" + str(vector[0]/mag_vec) + " " + str(vector[1]/mag_vec) + " " + str(vector[2]/mag_vec) + "]"
-   raw_vector = "1/sqrt(" + str(mag[0]) + ")[" + str(vector[0]) + " " + str(vector[1]) + " " + str(vector[2]) + "]"
-   print("u = " + raw_vector + " = " + final_vector)
+   if mag_vec == 0:
+      print("Division by zero error.")
+   else:
+      final_vector = "[" + str(vector[0]/mag_vec) + " " + str(vector[1]/mag_vec) + " " + str(vector[2]/mag_vec) + "]"
+      raw_vector = "1/sqrt(" + str(mag[0]) + ")[" + str(vector[0]) + " " + str(vector[1]) + " " + str(vector[2]) + "]"
+      print("u = " + raw_vector + " = " + final_vector)
 
 def projection(vec1, vec2):
    mag = magnitude(vec1)
@@ -53,7 +56,7 @@ def component_proj(vec1, vec2):
 def main():
    try:
       num = int(input("Enter the number associated with the task you wish to complete: "))
-      print("Enter all vectors in form (x,y,z).\n")
+      print("Enter all vectors in form '(x,y,z)'.\n")
       if num == 1:
          print("Magnitude of a: ||a||")
          a = input("Enter vector a: ")
@@ -79,7 +82,7 @@ def main():
          q = int(input("Enter '1' to see the magnitude, or '2' for the unit vector: "))
          if q == 1:
             mag_vec = magnitude(cross)
-            print("||a x b|| = " + "1/sqrt(" + str(mag_vec[0]) + ") = " + str(mag_vec[1]))
+            print("||a x b|| = " + "sqrt(" + str(mag_vec[0]) + ") = " + str(mag_vec[1]))
          elif q == 2:
             unit_vector(cross)
       elif num == 4:
@@ -107,7 +110,7 @@ def main():
          q = int(input("Enter '1' to see the magnitude, or '2' for the unit vector: "))
          if q == 1:
             mag_vec = magnitude(proj[2])
-            print("||a x b|| = " + "1/sqrt(" + str(mag_vec[0]) + ") = " + str(mag_vec[1]))
+            print("||Proj[a, b]|| = " + "sqrt(" + str(mag_vec[0]) + ") = " + str(mag_vec[1]))
          elif q == 2:
             unit_vector(proj[2])
       elif num == 7:
