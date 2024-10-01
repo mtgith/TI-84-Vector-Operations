@@ -47,12 +47,6 @@ def projection(vec1, vec2):
    raw_proj = str(dot_prod(vec1, vec2)) + "/" + str(mag[0]) + "[" + str(vec1[0]) + " "+ str(vec1[1]) + " " + str(vec1[2]) + "]"
    return [final_proj, raw_proj, vec]
 
-def component_proj(vec1, vec2):
-   mag = magnitude(vec1)
-   raw_comp = str(dot_prod(vec1, vec2)) + "/sqrt(" + str(mag[0]) + ")"
-   final_comp = dot_prod(vec1, vec2)/mag[1]
-   print("Comp[a, b] = " + raw_comp + " = " + str(final_comp))
-
 def main():
    try:
       num = int(input("Enter the number associated with the task you wish to complete: "))
@@ -113,13 +107,6 @@ def main():
             print("||Proj[a, b]|| = " + "sqrt(" + str(mag_vec[0]) + ") = " + str(mag_vec[1]))
          elif q == 2:
             unit_vector(proj[2])
-      elif num == 7:
-         print("Projection component of a onto b: Comp[a, b]")
-         a = input("Enter vector a: ")
-         vec_a = retrieve_vector(a)
-         b = input("Enter vector b: ")
-         vec_b = retrieve_vector(b)
-         component_proj(vec_a, vec_b)
       else:
          print("Invalid input number.")
    except:
@@ -127,5 +114,5 @@ def main():
 
 print("Vector Operations Calculator")
 
-print("\n1: Magnitude\n2: Dot Product\n3: Cross Product\n4: Scalar Triple Product\n5: Unit Vector\n6: Projection\n7: Projection Component\n")
+print("\n1: Magnitude\n2: Dot Product\n3: Cross Product\n4: Scalar Triple Product\n5: Unit Vector\n6: Projection\n")
 main()
