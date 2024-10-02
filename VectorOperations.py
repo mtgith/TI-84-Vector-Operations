@@ -23,6 +23,9 @@ def cross_prod(vector1, vector2):
    x_comp = (vector1[1]*vector2[2])-(vector1[2]*vector2[1])
    y_comp = (vector1[2]*vector2[0])-(vector1[0]*vector2[2])
    z_comp = (vector1[0]*vector2[1])-(vector1[1]*vector2[0])
+   if z_comp == 0:z_comp = 0.0
+   if y_comp == 0: y_comp = 0.0
+   if x_comp == 0: x_comp = 0.0
    vec = [x_comp, y_comp, z_comp]
    return vec 
 
