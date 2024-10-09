@@ -3,12 +3,20 @@ def retrieve_vector(vector):
    updated_vector = vector.replace("(", "")
    updated_vector = updated_vector.replace(")", "")
    vec = updated_vector.split(",")
-   if len(vec) != 3:
+   if len(vec) > 3:
       print("Invalid Dimensions: Vector should be of form '(x,y,z)'.")
    else:
       for elem in vec:
+         if "/" in elem: 
+            elem = get_fraction(elem)
          final_vector.append(float(elem))
+      if len(vec) == 2: final_vector.append(0)
       return final_vector
+
+def get_fraction(num):
+   split_num = num.split("/")
+   elem = float(split_num[0])/float(split_num[1])
+   return elem
 
 def magnitude(vector):
    sum = ((vector[0]**2)+(vector[1]**2)+(vector[2]**2))
