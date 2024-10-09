@@ -4,7 +4,7 @@ def retrieve_vector(vector):
    updated_vector = updated_vector.replace(")", "")
    vec = updated_vector.split(",")
    if len(vec) > 3:
-      print("Invalid Dimensions: Vector should be of form '(x,y,z)'.")
+      print("Invalid Dimensions: Vector should be of form '(x,y)' or '(x,y,z)'.")
    else:
       for elem in vec:
          if "/" in elem: 
@@ -61,7 +61,7 @@ def projection(vec1, vec2):
 def main():
    try:
       num = int(input("Enter the number associated with the task you wish to complete: "))
-      print("Enter all vectors in form '(x,y,z)'.\n")
+      print("Enter all vectors in form '(x,y)' or '(x,y,z)'.\n")
       if num == 1:
          print("Magnitude of a: ||a||")
          a = input("Enter vector a: ")
