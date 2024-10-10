@@ -4,7 +4,7 @@ def retrieve_vector(vector):
    updated_vector = updated_vector.replace(")", "")
    vec = updated_vector.split(",")
    if len(vec) > 3:
-      print("Invalid Dimensions: Vector should be of form '(x,y)' or '(x,y,z)'.")
+      print("Invalid Dimensions: Vectors should be of form '(x,y)' or '(x,y,z)'.")
    else:
       for elem in vec:
          if "/" in elem: 
