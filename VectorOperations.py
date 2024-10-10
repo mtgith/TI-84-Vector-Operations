@@ -15,8 +15,11 @@ def retrieve_vector(vector):
 
 def get_fraction(num):
    split_num = num.split("/")
-   elem = float(split_num[0])/float(split_num[1])
-   return elem
+   if len(split_num) > 2: print("Invalid Fraction: Fractions must be of form 'a/b'.")
+   else:
+      elem = float(split_num[0])/float(split_num[1])
+      return elem
+
 
 def magnitude(vector):
    sum = ((vector[0]**2)+(vector[1]**2)+(vector[2]**2))
